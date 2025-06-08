@@ -1,0 +1,386 @@
+{
+  "compatibilityLevel": 1567,
+  "model": {
+    "annotations": [
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"Extract___People_E547026C8E9E44408AE6E07CA851A8AD\", \"Extract___Returns_4DE6ED291ED64AD79E3301A752C3E0BD\", \"Extract___Orders_A1E27D1B4802414FB4701DAE571E0304\"]"
+      },
+      {
+        "name": "PBI_ProduceDetailedErrors",
+        "value": "true"
+      },
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "1"
+      }
+    ],
+    "culture": "en-US",
+    "cultures": [
+      {
+        "name": "en-US",
+        "linguisticMetadata": {
+          "content": {
+            "Version": "1.0.0",
+            "Language": "en-US"
+          },
+          "contentType": "json"
+        }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "Extract___People_E547026C8E9E44408AE6E07CA851A8AD",
+        "lineageTag": "53d7f67e-1861-4311-897b-e108750c5c99",
+        "columns": [
+          {
+            "name": "Regional_Manager",
+            "dataType": "string",
+            "sourceColumn": "Regional_Manager",
+            "summarizeBy": "none",
+            "lineageTag": "a9257781-765e-4192-b0b3-072480ec5ba0"
+          },
+          {
+            "name": "Region",
+            "dataType": "string",
+            "sourceColumn": "Region",
+            "summarizeBy": "none",
+            "lineageTag": "bc11950e-f454-47c3-a141-8413588fc0db"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Extract___People_E547026C8E9E44408AE6E07CA851A8AD-Partition",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #table(",
+                "        {\"Regional_Manager\", \"Region\"},",
+                "        {",
+                "            {\"Sadie Pawthorne\", \"West\"},",
+                "            {\"Chuck Magee\", \"East\"},",
+                "            {\"Roxanne Rodriguez\", \"Central\"},",
+                "            {\"Fred Suzuki\", \"South\"}",
+                "        }",
+                "    )",
+                "in",
+                "    Source"
+              ]
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation_Extract___People_E547026C8E9E44408AE6E07CA851A8AD"
+          }
+        ],
+        "measures": [
+          {
+            "name": "Calculation_4886757456459784192",
+            "expression": "AVERAGE([Sales])",
+            "formatString": "#,0",
+            "displayFolder": "Calculated Measures",
+            "lineageTag": "4b79d1c4-8039-434a-9288-223a8cc7f061"
+          },
+          {
+            "name": "Calculation_4886757456461934594",
+            "expression": "DATEDIFF('day',[Order Date],[Ship Date])",
+            "formatString": "#,0",
+            "displayFolder": "Calculated Measures",
+            "lineageTag": "d867edf5-9983-480b-83a7-b66a0eac7923"
+          },
+          {
+            "name": "Calculation_4886757456468738053",
+            "expression": "RANK(SUM([Sales])) <= [Parameters].[Parameter 1]",
+            "formatString": "",
+            "displayFolder": "Calculated Measures",
+            "lineageTag": "118ff874-b3dd-47e3-9cdc-18408c395ff3"
+          },
+          {
+            "name": "Parameter 1",
+            "expression": "50",
+            "formatString": "#,0",
+            "displayFolder": "Calculated Measures",
+            "lineageTag": "8848423c-3783-4f6a-a9b0-94ec6119a0c9"
+          }
+        ]
+      },
+      {
+        "name": "Extract___Returns_4DE6ED291ED64AD79E3301A752C3E0BD",
+        "lineageTag": "c215108c-a212-49f8-a5ac-ed513e72fa38",
+        "columns": [
+          {
+            "name": "Returned",
+            "dataType": "string",
+            "sourceColumn": "Returned",
+            "summarizeBy": "none",
+            "lineageTag": "dc1c77c7-1d32-4a53-916f-4383f33d72f5"
+          },
+          {
+            "name": "Order_ID",
+            "dataType": "string",
+            "sourceColumn": "Order_ID",
+            "summarizeBy": "none",
+            "lineageTag": "546fabb5-f85c-432b-b329-63c2b469269a"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Extract___Returns_4DE6ED291ED64AD79E3301A752C3E0BD-Partition",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #table(",
+                "        {\"Returned\", \"Order_ID\"},",
+                "        {",
+                "            {\"Yes\", \"US-2020-100762\"},",
+                "            {\"Yes\", \"US-2020-100762\"},",
+                "            {\"Yes\", \"US-2020-100762\"},",
+                "            {\"Yes\", \"US-2020-100762\"},",
+                "            {\"Yes\", \"US-2020-100867\"},",
+                "            {\"Yes\", \"US-2020-102652\"},",
+                "            {\"Yes\", \"US-2020-102652\"},",
+                "            {\"Yes\", \"US-2020-102652\"},",
+                "            {\"Yes\", \"US-2020-102652\"},",
+                "            {\"Yes\", \"US-2020-103373\"}",
+                "        }",
+                "    )",
+                "in",
+                "    Source"
+              ]
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation_Extract___Returns_4DE6ED291ED64AD79E3301A752C3E0BD"
+          }
+        ]
+      },
+      {
+        "name": "Extract___Orders_A1E27D1B4802414FB4701DAE571E0304",
+        "lineageTag": "7062b767-83a5-49cb-b491-fe25eb82202c",
+        "columns": [
+          {
+            "name": "Row_ID",
+            "dataType": "int64",
+            "sourceColumn": "Row_ID",
+            "summarizeBy": "none",
+            "lineageTag": "550097dc-235a-42f2-a42c-0e2539f9160e"
+          },
+          {
+            "name": "Order_ID",
+            "dataType": "string",
+            "sourceColumn": "Order_ID",
+            "summarizeBy": "none",
+            "lineageTag": "a92d3cce-19da-414f-a8d2-83225da03f07"
+          },
+          {
+            "name": "Order_Date",
+            "dataType": "string",
+            "sourceColumn": "Order_Date",
+            "summarizeBy": "none",
+            "lineageTag": "dc4afc82-e9b7-4642-9d11-800fc0fe583a"
+          },
+          {
+            "name": "Ship_Date",
+            "dataType": "string",
+            "sourceColumn": "Ship_Date",
+            "summarizeBy": "none",
+            "lineageTag": "af416fd5-a3f1-4fc1-8b60-85d769fb5974"
+          },
+          {
+            "name": "Ship_Mode",
+            "dataType": "string",
+            "sourceColumn": "Ship_Mode",
+            "summarizeBy": "none",
+            "lineageTag": "0773d7c3-96ce-486a-be21-5c45d9b54dad"
+          },
+          {
+            "name": "Customer_ID",
+            "dataType": "string",
+            "sourceColumn": "Customer_ID",
+            "summarizeBy": "none",
+            "lineageTag": "de4cdf28-73e3-45af-ac97-81e6162f0a5d"
+          },
+          {
+            "name": "Customer_Name",
+            "dataType": "string",
+            "sourceColumn": "Customer_Name",
+            "summarizeBy": "none",
+            "lineageTag": "327559e3-32bd-42be-b28d-fdd4f32a10e2"
+          },
+          {
+            "name": "Segment",
+            "dataType": "string",
+            "sourceColumn": "Segment",
+            "summarizeBy": "none",
+            "lineageTag": "62462b01-8378-4525-9af7-1332b7372f5a"
+          },
+          {
+            "name": "Country_Region",
+            "dataType": "string",
+            "sourceColumn": "Country_Region",
+            "summarizeBy": "none",
+            "lineageTag": "c2c26bcd-fac0-45f3-b8f2-1fcbb72f1d1c"
+          },
+          {
+            "name": "City",
+            "dataType": "string",
+            "sourceColumn": "City",
+            "summarizeBy": "none",
+            "lineageTag": "90859737-fe22-4728-8609-5ced2ce7e5d6"
+          },
+          {
+            "name": "State_Province",
+            "dataType": "string",
+            "sourceColumn": "State_Province",
+            "summarizeBy": "none",
+            "lineageTag": "259dd0fb-05b5-400e-bbca-31bb1dd4c099"
+          },
+          {
+            "name": "Postal_Code",
+            "dataType": "string",
+            "sourceColumn": "Postal_Code",
+            "summarizeBy": "none",
+            "lineageTag": "4dda664a-af75-4b8a-b995-d50e0f877483"
+          },
+          {
+            "name": "Region",
+            "dataType": "string",
+            "sourceColumn": "Region",
+            "summarizeBy": "none",
+            "lineageTag": "d1f77234-f557-4895-9113-0b1baabfebfa"
+          },
+          {
+            "name": "Product_ID",
+            "dataType": "string",
+            "sourceColumn": "Product_ID",
+            "summarizeBy": "none",
+            "lineageTag": "1a1c04c5-b773-4609-a9f9-db3637d60b08"
+          },
+          {
+            "name": "Category",
+            "dataType": "string",
+            "sourceColumn": "Category",
+            "summarizeBy": "none",
+            "lineageTag": "e722d72e-dccc-4b84-9713-58b521fbc2ff"
+          },
+          {
+            "name": "Sub_Category",
+            "dataType": "string",
+            "sourceColumn": "Sub_Category",
+            "summarizeBy": "none",
+            "lineageTag": "db0f2001-a59f-42d2-8c73-2f83da1466a9"
+          },
+          {
+            "name": "Product_Name",
+            "dataType": "string",
+            "sourceColumn": "Product_Name",
+            "summarizeBy": "none",
+            "lineageTag": "645ae434-8cf9-44cd-b8f7-4c0750759a4b"
+          },
+          {
+            "name": "Sales",
+            "dataType": "double",
+            "sourceColumn": "Sales",
+            "summarizeBy": "sum",
+            "lineageTag": "6c73df01-9a7d-4489-a6c0-b6c76fbb2238",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Quantity",
+            "dataType": "double",
+            "sourceColumn": "Quantity",
+            "summarizeBy": "sum",
+            "lineageTag": "432fc44a-9294-4d19-a217-172260fef6b5",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Discount",
+            "dataType": "double",
+            "sourceColumn": "Discount",
+            "summarizeBy": "sum",
+            "lineageTag": "56894a49-fafa-4ab1-9eb7-14d0a5c3e525",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Profit",
+            "dataType": "double",
+            "sourceColumn": "Profit",
+            "summarizeBy": "sum",
+            "lineageTag": "5ba0c348-8cab-46e1-a3b0-3cf526f000e7",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Extract___Orders_A1E27D1B4802414FB4701DAE571E0304-Partition",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #table(",
+                "        {\"Row_ID\", \"Order_ID\", \"Order_Date\", \"Ship_Date\", \"Ship_Mode\", \"Customer_ID\", \"Customer_Name\", \"Segment\", \"Country_Region\", \"City\", \"State_Province\", \"Postal_Code\", \"Region\", \"Product_ID\", \"Category\", \"Sub_Category\", \"Product_Name\", \"Sales\", \"Quantity\", \"Discount\", \"Profit\"},",
+                "        {",
+                "            {1.0, \"US-2020-103800\", \"2020-01-03\", \"2020-01-07\", \"Standard Class\", \"DP-13000\", \"Darren Powers\", \"Consumer\", \"United States\", \"Houston\", \"Texas\", 77095.0, \"Central\", \"OFF-PA-10000174\", \"Office Supplies\", \"Paper\", \"Message Book, Wirebound, Four 5 1/2\"\" X 4\"\" Forms/Pg., 200 Dupl. Sets/Book\", 16.448, 2.0, 0.2, 5.551199999999998},",
+                "            {2.0, \"US-2020-112326\", \"2020-01-04\", \"2020-01-08\", \"Standard Class\", \"PO-19195\", \"Phillina Ober\", \"Home Office\", \"United States\", \"Naperville\", \"Illinois\", 60540.0, \"Central\", \"OFF-BI-10004094\", \"Office Supplies\", \"Binders\", \"GBC Standard Plastic Binding Systems Combs\", 3.539999999999999, 2.0, 0.8, -5.487},",
+                "            {3.0, \"US-2020-112326\", \"2020-01-04\", \"2020-01-08\", \"Standard Class\", \"PO-19195\", \"Phillina Ober\", \"Home Office\", \"United States\", \"Naperville\", \"Illinois\", 60540.0, \"Central\", \"OFF-LA-10003223\", \"Office Supplies\", \"Labels\", \"Avery 508\", 11.784, 3.0, 0.2, 4.271699999999999},",
+                "            {4.0, \"US-2020-112326\", \"2020-01-04\", \"2020-01-08\", \"Standard Class\", \"PO-19195\", \"Phillina Ober\", \"Home Office\", \"United States\", \"Naperville\", \"Illinois\", 60540.0, \"Central\", \"OFF-ST-10002743\", \"Office Supplies\", \"Storage\", \"SAFCO Boltless Steel Shelving\", 272.736, 3.0, 0.2, -64.77480000000001},",
+                "            {5.0, \"US-2020-141817\", \"2020-01-05\", \"2020-01-12\", \"Standard Class\", \"MB-18085\", \"Mick Brown\", \"Consumer\", \"United States\", \"Philadelphia\", \"Pennsylvania\", 19143.0, \"East\", \"OFF-AR-10003478\", \"Office Supplies\", \"Art\", \"Avery Hi-Liter EverBold Pen Style Fluorescent Highlighters, 4/Pack\", 19.536, 3.0, 0.2, 4.884},",
+                "            {6.0, \"US-2020-167199\", \"2020-01-06\", \"2020-01-10\", \"Standard Class\", \"ME-17320\", \"Maria Etezadi\", \"Home Office\", \"United States\", \"Henderson\", \"Kentucky\", 42420.0, \"South\", \"FUR-CH-10004063\", \"Furniture\", \"Chairs\", \"Global Deluxe High-Back Manager's Chair\", 2573.82, 9.0, 0.0, 746.4077999999997},",
+                "            {7.0, \"US-2020-167199\", \"2020-01-06\", \"2020-01-10\", \"Standard Class\", \"ME-17320\", \"Maria Etezadi\", \"Home Office\", \"United States\", \"Henderson\", \"Kentucky\", 42420.0, \"South\", \"OFF-AR-10001662\", \"Office Supplies\", \"Art\", \"Rogers Handheld Barrel Pencil Sharpener\", 5.48, 2.0, 0.0, 1.4796000000000005},",
+                "            {8.0, \"US-2020-106054\", \"2020-01-06\", \"2020-01-07\", \"First Class\", \"JO-15145\", \"Jack O'Briant\", \"Corporate\", \"United States\", \"Athens\", \"Georgia\", 30605.0, \"South\", \"OFF-AR-10002399\", \"Office Supplies\", \"Art\", \"Dixon Prang Watercolor Pencils, 10-Color Set with Brush\", 12.78, 3.0, 0.0, 5.2398},",
+                "            {9.0, \"US-2020-167199\", \"2020-01-06\", \"2020-01-10\", \"Standard Class\", \"ME-17320\", \"Maria Etezadi\", \"Home Office\", \"United States\", \"Henderson\", \"Kentucky\", 42420.0, \"South\", \"OFF-BI-10004632\", \"Office Supplies\", \"Binders\", \"Ibico Hi-Tech Manual Binding System\", 609.98, 2.0, 0.0, 274.491},",
+                "            {10.0, \"US-2020-167199\", \"2020-01-06\", \"2020-01-10\", \"Standard Class\", \"ME-17320\", \"Maria Etezadi\", \"Home Office\", \"United States\", \"Henderson\", \"Kentucky\", 42420.0, \"South\", \"OFF-FA-10001883\", \"Office Supplies\", \"Fasteners\", \"Alliance Super-Size Bands, Assorted Sizes\", 31.12, 4.0, 0.0, 0.3111999999999995}",
+                "        }",
+                "    )",
+                "in",
+                "    Source"
+              ]
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation_Extract___Orders_A1E27D1B4802414FB4701DAE571E0304"
+          }
+        ]
+      }
+    ]
+  }
+}
