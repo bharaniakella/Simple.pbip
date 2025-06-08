@@ -1,5 +1,5 @@
 {
-  "config": "{\"version\": \"5.59\", \"themeCollection\": {\"baseTheme\": {\"name\": \"CY24SU10\", \"version\": \"5.64\", \"type\": 2}}, \"activeSectionIndex\": 0, \"defaultDrillFilterOtherVisuals\": true, \"linguisticSchemaSyncVersion\": 2, \"settings\": {\"useNewFilterPaneExperience\": true, \"allowChangeFilterTypes\": true, \"useStylableVisualContainerHeader\": true, \"queryLimitOption\": 6, \"exportDataMode\": 1, \"useDefaultAggregateDisplayName\": true, \"useEnhancedTooltips\": true}, \"objects\": {\"section\": [{\"properties\": {\"verticalAlignment\": {\"expr\": {\"Literal\": {\"Value\": \"'Top'\"}}}}}]}}",
+  "config": "{\"version\":\"5.59\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"version\":\"5.64\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"useEnhancedTooltips\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
   "layoutOptimization": 0,
   "resourcePackages": [
     {
@@ -23,20 +23,20 @@
       "displayName": "Page 1",
       "displayOption": 1,
       "filters": "[]",
-      "height": 720.0,
+      "height": 720.00,
       "name": "be1a3f9d2c28480fac56",
       "visualContainers": [
         {
-          "config": "{\"name\": \"a402e85822d64cc8a4c8\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 10, \"y\": 10, \"width\": 600, \"height\": 400, \"z\": 0, \"tabOrder\": 0}}], \"singleVisual\": {\"visualType\": \"columnChart\", \"projections\": {\"Category\": [{\"queryRef\": \"Extract___Orders_A1E27D1B4802414FB4701DAE571E0304.\\\"Order Date\\\"\", \"active\": true}], \"Y\": [{\"queryRef\": \"Sum(Extract___Orders_A1E27D1B4802414FB4701DAE571E0304.\\\"Sales\\\")\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"e\", \"Entity\": \"Extract___Orders_A1E27D1B4802414FB4701DAE571E0304\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"e\"}}, \"Property\": \"\\\"Order Date\\\"\"}, \"Name\": \"Extract___Orders_A1E27D1B4802414FB4701DAE571E0304.\\\"Order Date\\\"\", \"NativeReferenceName\": \"\\\"Order Date\\\"\"}, {\"Aggregation\": {\"Expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"e\"}}, \"Property\": \"\\\"Sales\\\"\"}}, \"Function\": 0}, \"Name\": \"Sum(Extract___Orders_A1E27D1B4802414FB4701DAE571E0304.\\\"Sales\\\")\", \"NativeReferenceName\": \"Sum of \\\"Sales\\\"\"}], \"OrderBy\": [{\"Direction\": 2, \"Expression\": {\"Aggregation\": {\"Expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"e\"}}, \"Property\": \"\\\"Sales\\\"\"}}, \"Function\": 0}}}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true}}",
+          "config": "{\"name\":\"a402e85822d64cc8a4c8\",\"layouts\":[{\"id\":0,\"position\":{\"x\":10,\"y\":10,\"width\":600,\"height\":400,\"z\":0,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Y\":[{\"queryRef\":\"CountNonNull(Extract___Orders_A1E27D1B4802414FB4701DAE571E0304.Sales)\"}],\"Category\":[{\"queryRef\":\"Extract___Orders_A1E27D1B4802414FB4701DAE571E0304.Order_Date\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"e\",\"Entity\":\"Extract___Orders_A1E27D1B4802414FB4701DAE571E0304\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"Order_Date\"},\"Name\":\"Extract___Orders_A1E27D1B4802414FB4701DAE571E0304.Order_Date\",\"NativeReferenceName\":\"Order_Date\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"Sales\"}},\"Function\":5},\"Name\":\"CountNonNull(Extract___Orders_A1E27D1B4802414FB4701DAE571E0304.Sales)\",\"NativeReferenceName\":\"Count of Sales\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"Sales\"}},\"Function\":5}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
           "filters": "[]",
-          "height": 400.0,
-          "width": 600.0,
-          "x": 10.0,
-          "y": 10.0,
-          "z": 0.0
+          "height": 400.00,
+          "width": 600.00,
+          "x": 10.00,
+          "y": 10.00,
+          "z": 0.00
         }
       ],
-      "width": 1280.0
+      "width": 1280.00
     }
   ]
 }

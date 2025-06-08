@@ -4,7 +4,7 @@
     "annotations": [
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"Extract___People_E547026C8E9E44408AE6E07CA851A8AD\", \"Extract___Returns_4DE6ED291ED64AD79E3301A752C3E0BD\", \"Extract___Orders_A1E27D1B4802414FB4701DAE571E0304\"]"
+        "value": "[\"Extract___People_E547026C8E9E44408AE6E07CA851A8AD\",\"Extract___Returns_4DE6ED291ED64AD79E3301A752C3E0BD\",\"Extract___Orders_A1E27D1B4802414FB4701DAE571E0304\"]"
       },
       {
         "name": "PBI_ProduceDetailedErrors",
@@ -13,6 +13,14 @@
       {
         "name": "__PBI_TimeIntelligenceEnabled",
         "value": "1"
+      },
+      {
+        "name": "PBIDesktopVersion",
+        "value": "2.143.1378.0 (25.05)+4e1de9c957866bc5336e0d250838314aa54ff3a8"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
       }
     ],
     "culture": "en-US",
@@ -21,8 +29,8 @@
         "name": "en-US",
         "linguisticMetadata": {
           "content": {
-            "Version": "1.0.0",
-            "Language": "en-US"
+            "Language": "en-US",
+            "Version": "1.0.0"
           },
           "contentType": "json"
         }
@@ -37,21 +45,56 @@
     "tables": [
       {
         "name": "Extract___People_E547026C8E9E44408AE6E07CA851A8AD",
-        "lineageTag": "53d7f67e-1861-4311-897b-e108750c5c99",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation_Extract___People_E547026C8E9E44408AE6E07CA851A8AD"
+          }
+        ],
         "columns": [
           {
             "name": "Regional_Manager",
             "dataType": "string",
+            "lineageTag": "a9257781-765e-4192-b0b3-072480ec5ba0",
             "sourceColumn": "Regional_Manager",
-            "summarizeBy": "none",
-            "lineageTag": "a9257781-765e-4192-b0b3-072480ec5ba0"
+            "summarizeBy": "none"
           },
           {
             "name": "Region",
             "dataType": "string",
+            "lineageTag": "bc11950e-f454-47c3-a141-8413588fc0db",
             "sourceColumn": "Region",
-            "summarizeBy": "none",
-            "lineageTag": "bc11950e-f454-47c3-a141-8413588fc0db"
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "53d7f67e-1861-4311-897b-e108750c5c99",
+        "measures": [
+          {
+            "name": "Calculation_4886757456459784192",
+            "displayFolder": "Calculated Measures",
+            "expression": "AVERAGE([Sales])",
+            "formatString": "#,0",
+            "lineageTag": "4b79d1c4-8039-434a-9288-223a8cc7f061"
+          },
+          {
+            "name": "Calculation_4886757456461934594",
+            "displayFolder": "Calculated Measures",
+            "expression": "DATEDIFF('day',[Order Date],[Ship Date])",
+            "formatString": "#,0",
+            "lineageTag": "d867edf5-9983-480b-83a7-b66a0eac7923"
+          },
+          {
+            "name": "Calculation_4886757456468738053",
+            "displayFolder": "Calculated Measures",
+            "expression": "RANK(SUM([Sales])) <= [Parameters].[Parameter 1]",
+            "lineageTag": "118ff874-b3dd-47e3-9cdc-18408c395ff3"
+          },
+          {
+            "name": "Parameter 1",
+            "displayFolder": "Calculated Measures",
+            "expression": "50",
+            "formatString": "#,0",
+            "lineageTag": "8848423c-3783-4f6a-a9b0-94ec6119a0c9"
           }
         ],
         "partitions": [
@@ -59,7 +102,6 @@
             "name": "Extract___People_E547026C8E9E44408AE6E07CA851A8AD-Partition",
             "mode": "import",
             "source": {
-              "type": "m",
               "expression": [
                 "let",
                 "    Source = #table(",
@@ -73,72 +115,42 @@
                 "    )",
                 "in",
                 "    Source"
-              ]
+              ],
+              "type": "m"
             }
-          }
-        ],
-        "annotations": [
-          {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation_Extract___People_E547026C8E9E44408AE6E07CA851A8AD"
-          }
-        ],
-        "measures": [
-          {
-            "name": "Calculation_4886757456459784192",
-            "expression": "AVERAGE([Sales])",
-            "formatString": "#,0",
-            "displayFolder": "Calculated Measures",
-            "lineageTag": "4b79d1c4-8039-434a-9288-223a8cc7f061"
-          },
-          {
-            "name": "Calculation_4886757456461934594",
-            "expression": "DATEDIFF('day',[Order Date],[Ship Date])",
-            "formatString": "#,0",
-            "displayFolder": "Calculated Measures",
-            "lineageTag": "d867edf5-9983-480b-83a7-b66a0eac7923"
-          },
-          {
-            "name": "Calculation_4886757456468738053",
-            "expression": "RANK(SUM([Sales])) <= [Parameters].[Parameter 1]",
-            "formatString": "",
-            "displayFolder": "Calculated Measures",
-            "lineageTag": "118ff874-b3dd-47e3-9cdc-18408c395ff3"
-          },
-          {
-            "name": "Parameter 1",
-            "expression": "50",
-            "formatString": "#,0",
-            "displayFolder": "Calculated Measures",
-            "lineageTag": "8848423c-3783-4f6a-a9b0-94ec6119a0c9"
           }
         ]
       },
       {
         "name": "Extract___Returns_4DE6ED291ED64AD79E3301A752C3E0BD",
-        "lineageTag": "c215108c-a212-49f8-a5ac-ed513e72fa38",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation_Extract___Returns_4DE6ED291ED64AD79E3301A752C3E0BD"
+          }
+        ],
         "columns": [
           {
             "name": "Returned",
             "dataType": "string",
+            "lineageTag": "dc1c77c7-1d32-4a53-916f-4383f33d72f5",
             "sourceColumn": "Returned",
-            "summarizeBy": "none",
-            "lineageTag": "dc1c77c7-1d32-4a53-916f-4383f33d72f5"
+            "summarizeBy": "none"
           },
           {
             "name": "Order_ID",
             "dataType": "string",
+            "lineageTag": "546fabb5-f85c-432b-b329-63c2b469269a",
             "sourceColumn": "Order_ID",
-            "summarizeBy": "none",
-            "lineageTag": "546fabb5-f85c-432b-b329-63c2b469269a"
+            "summarizeBy": "none"
           }
         ],
+        "lineageTag": "c215108c-a212-49f8-a5ac-ed513e72fa38",
         "partitions": [
           {
             "name": "Extract___Returns_4DE6ED291ED64AD79E3301A752C3E0BD-Partition",
             "mode": "import",
             "source": {
-              "type": "m",
               "expression": [
                 "let",
                 "    Source = #table(",
@@ -158,199 +170,205 @@
                 "    )",
                 "in",
                 "    Source"
-              ]
+              ],
+              "type": "m"
             }
-          }
-        ],
-        "annotations": [
-          {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation_Extract___Returns_4DE6ED291ED64AD79E3301A752C3E0BD"
           }
         ]
       },
       {
         "name": "Extract___Orders_A1E27D1B4802414FB4701DAE571E0304",
-        "lineageTag": "7062b767-83a5-49cb-b491-fe25eb82202c",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation_Extract___Orders_A1E27D1B4802414FB4701DAE571E0304"
+          }
+        ],
         "columns": [
           {
             "name": "Row_ID",
-            "dataType": "int64",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "550097dc-235a-42f2-a42c-0e2539f9160e",
             "sourceColumn": "Row_ID",
-            "summarizeBy": "none",
-            "lineageTag": "550097dc-235a-42f2-a42c-0e2539f9160e"
+            "summarizeBy": "none"
           },
           {
             "name": "Order_ID",
             "dataType": "string",
+            "lineageTag": "a92d3cce-19da-414f-a8d2-83225da03f07",
             "sourceColumn": "Order_ID",
-            "summarizeBy": "none",
-            "lineageTag": "a92d3cce-19da-414f-a8d2-83225da03f07"
+            "summarizeBy": "none"
           },
           {
             "name": "Order_Date",
             "dataType": "string",
+            "lineageTag": "dc4afc82-e9b7-4642-9d11-800fc0fe583a",
             "sourceColumn": "Order_Date",
-            "summarizeBy": "none",
-            "lineageTag": "dc4afc82-e9b7-4642-9d11-800fc0fe583a"
+            "summarizeBy": "none"
           },
           {
             "name": "Ship_Date",
             "dataType": "string",
+            "lineageTag": "af416fd5-a3f1-4fc1-8b60-85d769fb5974",
             "sourceColumn": "Ship_Date",
-            "summarizeBy": "none",
-            "lineageTag": "af416fd5-a3f1-4fc1-8b60-85d769fb5974"
+            "summarizeBy": "none"
           },
           {
             "name": "Ship_Mode",
             "dataType": "string",
+            "lineageTag": "0773d7c3-96ce-486a-be21-5c45d9b54dad",
             "sourceColumn": "Ship_Mode",
-            "summarizeBy": "none",
-            "lineageTag": "0773d7c3-96ce-486a-be21-5c45d9b54dad"
+            "summarizeBy": "none"
           },
           {
             "name": "Customer_ID",
             "dataType": "string",
+            "lineageTag": "de4cdf28-73e3-45af-ac97-81e6162f0a5d",
             "sourceColumn": "Customer_ID",
-            "summarizeBy": "none",
-            "lineageTag": "de4cdf28-73e3-45af-ac97-81e6162f0a5d"
+            "summarizeBy": "none"
           },
           {
             "name": "Customer_Name",
             "dataType": "string",
+            "lineageTag": "327559e3-32bd-42be-b28d-fdd4f32a10e2",
             "sourceColumn": "Customer_Name",
-            "summarizeBy": "none",
-            "lineageTag": "327559e3-32bd-42be-b28d-fdd4f32a10e2"
+            "summarizeBy": "none"
           },
           {
             "name": "Segment",
             "dataType": "string",
+            "lineageTag": "62462b01-8378-4525-9af7-1332b7372f5a",
             "sourceColumn": "Segment",
-            "summarizeBy": "none",
-            "lineageTag": "62462b01-8378-4525-9af7-1332b7372f5a"
+            "summarizeBy": "none"
           },
           {
             "name": "Country_Region",
             "dataType": "string",
+            "lineageTag": "c2c26bcd-fac0-45f3-b8f2-1fcbb72f1d1c",
             "sourceColumn": "Country_Region",
-            "summarizeBy": "none",
-            "lineageTag": "c2c26bcd-fac0-45f3-b8f2-1fcbb72f1d1c"
+            "summarizeBy": "none"
           },
           {
             "name": "City",
             "dataType": "string",
+            "lineageTag": "90859737-fe22-4728-8609-5ced2ce7e5d6",
             "sourceColumn": "City",
-            "summarizeBy": "none",
-            "lineageTag": "90859737-fe22-4728-8609-5ced2ce7e5d6"
+            "summarizeBy": "none"
           },
           {
             "name": "State_Province",
             "dataType": "string",
+            "lineageTag": "259dd0fb-05b5-400e-bbca-31bb1dd4c099",
             "sourceColumn": "State_Province",
-            "summarizeBy": "none",
-            "lineageTag": "259dd0fb-05b5-400e-bbca-31bb1dd4c099"
+            "summarizeBy": "none"
           },
           {
             "name": "Postal_Code",
             "dataType": "string",
+            "lineageTag": "4dda664a-af75-4b8a-b995-d50e0f877483",
             "sourceColumn": "Postal_Code",
-            "summarizeBy": "none",
-            "lineageTag": "4dda664a-af75-4b8a-b995-d50e0f877483"
+            "summarizeBy": "none"
           },
           {
             "name": "Region",
             "dataType": "string",
+            "lineageTag": "d1f77234-f557-4895-9113-0b1baabfebfa",
             "sourceColumn": "Region",
-            "summarizeBy": "none",
-            "lineageTag": "d1f77234-f557-4895-9113-0b1baabfebfa"
+            "summarizeBy": "none"
           },
           {
             "name": "Product_ID",
             "dataType": "string",
+            "lineageTag": "1a1c04c5-b773-4609-a9f9-db3637d60b08",
             "sourceColumn": "Product_ID",
-            "summarizeBy": "none",
-            "lineageTag": "1a1c04c5-b773-4609-a9f9-db3637d60b08"
+            "summarizeBy": "none"
           },
           {
             "name": "Category",
             "dataType": "string",
+            "lineageTag": "e722d72e-dccc-4b84-9713-58b521fbc2ff",
             "sourceColumn": "Category",
-            "summarizeBy": "none",
-            "lineageTag": "e722d72e-dccc-4b84-9713-58b521fbc2ff"
+            "summarizeBy": "none"
           },
           {
             "name": "Sub_Category",
             "dataType": "string",
+            "lineageTag": "db0f2001-a59f-42d2-8c73-2f83da1466a9",
             "sourceColumn": "Sub_Category",
-            "summarizeBy": "none",
-            "lineageTag": "db0f2001-a59f-42d2-8c73-2f83da1466a9"
+            "summarizeBy": "none"
           },
           {
             "name": "Product_Name",
             "dataType": "string",
+            "lineageTag": "645ae434-8cf9-44cd-b8f7-4c0750759a4b",
             "sourceColumn": "Product_Name",
-            "summarizeBy": "none",
-            "lineageTag": "645ae434-8cf9-44cd-b8f7-4c0750759a4b"
+            "summarizeBy": "none"
           },
           {
             "name": "Sales",
-            "dataType": "double",
-            "sourceColumn": "Sales",
-            "summarizeBy": "sum",
-            "lineageTag": "6c73df01-9a7d-4489-a6c0-b6c76fbb2238",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
               }
-            ]
+            ],
+            "dataType": "string",
+            "lineageTag": "6c73df01-9a7d-4489-a6c0-b6c76fbb2238",
+            "sourceColumn": "Sales",
+            "summarizeBy": "none"
           },
           {
             "name": "Quantity",
-            "dataType": "double",
-            "sourceColumn": "Quantity",
-            "summarizeBy": "sum",
-            "lineageTag": "432fc44a-9294-4d19-a217-172260fef6b5",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
               }
-            ]
+            ],
+            "dataType": "string",
+            "lineageTag": "432fc44a-9294-4d19-a217-172260fef6b5",
+            "sourceColumn": "Quantity",
+            "summarizeBy": "none"
           },
           {
             "name": "Discount",
-            "dataType": "double",
-            "sourceColumn": "Discount",
-            "summarizeBy": "sum",
-            "lineageTag": "56894a49-fafa-4ab1-9eb7-14d0a5c3e525",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
               }
-            ]
+            ],
+            "dataType": "string",
+            "lineageTag": "56894a49-fafa-4ab1-9eb7-14d0a5c3e525",
+            "sourceColumn": "Discount",
+            "summarizeBy": "none"
           },
           {
             "name": "Profit",
-            "dataType": "double",
-            "sourceColumn": "Profit",
-            "summarizeBy": "sum",
-            "lineageTag": "5ba0c348-8cab-46e1-a3b0-3cf526f000e7",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
               }
-            ]
+            ],
+            "dataType": "string",
+            "lineageTag": "5ba0c348-8cab-46e1-a3b0-3cf526f000e7",
+            "sourceColumn": "Profit",
+            "summarizeBy": "none"
           }
         ],
+        "lineageTag": "7062b767-83a5-49cb-b491-fe25eb82202c",
         "partitions": [
           {
             "name": "Extract___Orders_A1E27D1B4802414FB4701DAE571E0304-Partition",
             "mode": "import",
             "source": {
-              "type": "m",
               "expression": [
                 "let",
                 "    Source = #table(",
@@ -370,14 +388,9 @@
                 "    )",
                 "in",
                 "    Source"
-              ]
+              ],
+              "type": "m"
             }
-          }
-        ],
-        "annotations": [
-          {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation_Extract___Orders_A1E27D1B4802414FB4701DAE571E0304"
           }
         ]
       }

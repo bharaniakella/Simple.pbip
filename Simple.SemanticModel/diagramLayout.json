@@ -1,0 +1,61 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "Extract___Orders_A1E27D1B4802414FB4701DAE571E0304",
+          "nodeLineageTag": "7062b767-83a5-49cb-b491-fe25eb82202c",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 284,
+            "y": 38
+          },
+          "nodeIndex": "Extract___People_E547026C8E9E44408AE6E07CA851A8AD",
+          "nodeLineageTag": "53d7f67e-1861-4311-897b-e108750c5c99",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 568,
+            "y": 86
+          },
+          "nodeIndex": "Extract___Returns_4DE6ED291ED64AD79E3301A752C3E0BD",
+          "nodeLineageTag": "c215108c-a212-49f8-a5ac-ed513e72fa38",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}
